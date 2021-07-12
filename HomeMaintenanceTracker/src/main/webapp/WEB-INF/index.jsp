@@ -459,7 +459,7 @@
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-success" id="editBtn"
-						data-bs-dismiss="modal" form='editForm'>Save</button>
+						 form='editForm'>Save</button>
 				</div>
 			</div>
 		</div>
@@ -515,7 +515,7 @@
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-success" id="saveBtn"
-						data-bs-dismiss="modal" form="newTaskForm">Save</button>
+						 form="newTaskForm">Save</button>
 				</div>
 			</div>
 		</div>
