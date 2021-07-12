@@ -424,7 +424,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="taskName" class="col-form-label">Task Name:</label> <input
-								type="text" class="form-control" id="taskName" name="taskName">
+								type="text" class="form-control" id="taskName" name="taskName" required>
 						</div>
 						<div class="mb-3">
 							<label for="description" class="col-form-label">Description:</label>
@@ -482,7 +482,7 @@
 						<div class="mb-3">
 							<label for="taskName" class="col-form-label">Task Name:</label> <input
 								type="text" class="form-control" id="taskName" name="taskName"
-								value="">
+								value="" required>
 						</div>
 						<div class="mb-3">
 							<label for="description" class="col-form-label">Description:</label>
