@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+body {
+	background-color: lightgrey;
+}
+
+.img-fluid {
+	margin: auto;
+}
+
+.container {
+	background-color: lightgrey;
+	width: 70%;
+	margin: auto;
+}
+
+.d-grid {
+	padding: 5px;
+}
+
+.btn-group-wrap {
+    text-align: center;
+}
+.btn-group {
+	margin: 0px auto; 
+	padding: 0px;
+    text-align: center;
+    width: auto;
+}
+
+.table {
+	background-color: white;
+	padding: 5px;
+}
+
+.overdue-table>table:last-child {
+	margin: 10px;
+	border: 2px solid red;
+}
+
+.sevenDay-table>table:last-child {
+	margin: 10px;
+	border: 2px solid yellow;
+}
+
+.thirtyDay-table>table:last-child {
+	margin: 10px;
+	border: 2px solid green;
+}
+
+.remaining-table>table:last-child {
+	margin: 10px;
+	border: 2px solid black;
+}
+
+.archived-table>table:last-child {
+	margin: 10px;
+	border: 2px solid black;
+}
+
+
+.image-container {
+  background-image: url("images/tool-banner.jpeg"); /* The image used - important! */
+  background-size: cover;
+  position: relative; /* Needed to position the cutout text in the middle of the image */
+  height: 300px; /* Some height */
+  opacity: 80%;
+}
+
+.text {
+  background-color: lightgrey;
+  color: black;
+  font-size: 5vw; /* Responsive font size */
+  font-weight: bold;
+  margin: 0 auto; /* Center the text container */
+  padding: 10px;
+  width: 70%;
+  text-align: center; /* Center text */
+  position: absolute; /* Position text */
+  top: 50%; /* Position text in the middle */
+  left: 50%; /* Position text in the middle */
+  transform: translate(-50%, -50%); /* Position text in the middle */
+  mix-blend-mode: screen; /* This makes the cutout text possible */
+}

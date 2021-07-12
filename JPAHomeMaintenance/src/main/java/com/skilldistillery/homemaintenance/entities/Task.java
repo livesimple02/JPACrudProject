@@ -23,9 +23,12 @@ public class Task {
 	private LocalDate nextDueDate;
 	@Column (name = "instructions_link")
 	private String instructionURL;
+	@Column (name = "active_flag")
+	private Boolean activeFlag;
+	@Column (name = "maint_interval")
+	private Integer interval;
 	
 	private String description;
-	private Integer interval;
 	
 	
 	
@@ -90,6 +93,14 @@ public class Task {
 
 	public void setInterval(Integer interval) {
 		this.interval = interval;
+	}
+
+	public Boolean getActiveFlag() {
+		return activeFlag;
+	}
+
+	public void setActiveFlag(Boolean activeFlag) {
+		this.activeFlag = activeFlag;
 	}
 
 	@Override

@@ -2,6 +2,9 @@ package com.skilldistillery.homemaintenance.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -43,7 +46,13 @@ class TaskTest {
 	@Test
 	void test_Task_entity_mapping() {
 		assertNotNull(task);
-		assertEquals("Replace Refridgerator Water Filter", task.getTaskName());
+		assertEquals("Refrigerator Water Filter", task.getTaskName());
+		assertEquals("Replace Water Filter", task.getDescription());
+		assertEquals(180, task.getInterval());
+		assertEquals(LocalDate.of(2021, 2, 12), task.getLastCompletedDate());
+		assertEquals(LocalDate.of(2021, 8, 11), task.getNextDueDate());
+		assertNull(task.getInstructionURL());
+		
 	}
 
 }

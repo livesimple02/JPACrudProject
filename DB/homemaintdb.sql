@@ -24,10 +24,11 @@ CREATE TABLE IF NOT EXISTS `task` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `task_name` VARCHAR(200) NOT NULL,
   `description` VARCHAR(1000) NULL,
-  `interval` SMALLINT(3) NULL,
+  `maint_interval` SMALLINT(3) NULL,
   `last_completed` DATE NULL,
   `next_due_date` DATE NULL,
   `instructions_link` TEXT NULL,
+  `active_flag` TINYINT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -47,7 +48,13 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `homemaintdb`;
-INSERT INTO `task` (`id`, `task_name`, `description`, `interval`, `last_completed`, `next_due_date`, `instructions_link`) VALUES (1, 'Replace Refridgerator Water Filter', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `task` (`id`, `task_name`, `description`, `maint_interval`, `last_completed`, `next_due_date`, `instructions_link`, `active_flag`) VALUES (1, 'Refrigerator Water Filter', 'Replace Water Filter', 180, '2021-2-12', '2021-8-11', NULL, 1);
+INSERT INTO `task` (`id`, `task_name`, `description`, `maint_interval`, `last_completed`, `next_due_date`, `instructions_link`, `active_flag`) VALUES (2, 'Furnace Air Filter', 'Replace Furnace Air Filter', 90, '2021-6-9', '2021-9-7', NULL, 1);
+INSERT INTO `task` (`id`, `task_name`, `description`, `maint_interval`, `last_completed`, `next_due_date`, `instructions_link`, `active_flag`) VALUES (3, 'Flush Hot Water Heater', 'Flush hot water heater and check pressure relief valve', 365, '2020-4-28', '2021-4-28', 'https://www.artofmanliness.com/articles/how-to-flush-your-hot-water-heater/', 1);
+INSERT INTO `task` (`id`, `task_name`, `description`, `maint_interval`, `last_completed`, `next_due_date`, `instructions_link`, `active_flag`) VALUES (4, 'Clean Windows', NULL, 180, NULL, '2021-7-17', NULL, 1);
+INSERT INTO `task` (`id`, `task_name`, `description`, `maint_interval`, `last_completed`, `next_due_date`, `instructions_link`, `active_flag`) VALUES (5, 'Clean Gutters', NULL, 90, '2020-6-24', '2020-9-24', NULL, 0);
+INSERT INTO `task` (`id`, `task_name`, `description`, `maint_interval`, `last_completed`, `next_due_date`, `instructions_link`, `active_flag`) VALUES (6, 'Clean Washing Machin', 'Run washer using Afresh', 30, '2020-10-10', '2020-11-9', NULL, 0);
+INSERT INTO `task` (`id`, `task_name`, `description`, `maint_interval`, `last_completed`, `next_due_date`, `instructions_link`, `active_flag`) VALUES (7, 'Clean Baseboards', NULL, 60, NULL, '2021-7-12', NULL, 1);
 
 COMMIT;
 
