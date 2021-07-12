@@ -442,14 +442,14 @@
 								name='nextDue'>
 						</div>
 						<div class="mb-3">
-							<label for="instructLink" class="col-form-label">Instructions:</label>
+							<label for="instructURL" class="col-form-label">Instructions:</label>
 							<input type='text' class="form-control" id="instructURL"
 								name='instructURL'>
 						</div>
 						<div class="form-check">
 							<label for="activeFlag" class="form-label">Active</label> <input
 								class="form-check-input" type="checkbox" id="activeFlag"
-								value="1" name='activeFlag'>
+								name='activeFlag' value='1'>
 						</div>
 					</form>
 				</div>
@@ -507,7 +507,7 @@
 						<div class="form-check">
 							<label for="activeFlag" class="form-label">Active</label> <input
 								class="form-check-input" type="checkbox" id="activeFlag"
-								value=true name="activeFlag">
+								name="activeFlag" value='1'>
 						</div>
 					</form>
 				</div>
@@ -570,7 +570,9 @@
 			modalBodyNextDue.value = nextDue
 			modalBodyLastCompleted.value = lastCompleted
 			modalBodyInstructURL.value = instructions
-			modalBodyInstruct.href = instructions
+			if (instructions != null && instructions != '') {
+				modalBodyInstruct.href = instructions;
+			}
 			if (activeFlag == "true") {
 				modalBodyActiveFlag.checked = true;
 				modalBodyActiveFlag.value = 1;
@@ -623,12 +625,10 @@
 			modalBodyNextDue.value = nextDue
 			modalBodyLastCompleted.value = lastCompleted
 			modalBodyInstructURL.value = instructions
-			if (activeFlag == 1) {
+			if (activeFlag == '1') {
 				modalBodyActiveFlag.checked = true;
-				modalBodyActiveFlag.value = 1;
 			} else {
 				modalBodyActiveFlag.checked = false;
-				modalBodyActiveFlag.value = 0;
 			}
 			modalBodyId.value = idNum
 			modalHeaderId.value = idNum

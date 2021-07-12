@@ -21,7 +21,7 @@ public class TaskController {
 	@Autowired
 	TaskDAO dao;
 
-	@RequestMapping(path = { "/" })
+	@RequestMapping(path = "/")
 	public String index(Model model, HttpSession session) {
 		LocalDate today = LocalDate.now();
 
@@ -33,7 +33,7 @@ public class TaskController {
 
 		for (int i = 0; i < allActiveTasks.size();) {
 			Task task = allActiveTasks.get(i);
-			if (task == null || task.getNextDueDate().isBefore(today) || task.getNextDueDate() == null) {
+			if (task == null || task.getNextDueDate() == null || task.getNextDueDate().isBefore(today)) {
 				overdueTasks.add(task);
 				allActiveTasks.remove(task);
 				continue;
@@ -62,7 +62,7 @@ public class TaskController {
 
 	@RequestMapping(path = "addTask.do", method = RequestMethod.POST)
 	public String addNewTask(String taskName, String description, String lastCompleted, String nextDue,
-			String instructURL, Boolean activeFlag) {
+			String instructURL, Integer activeFlag) {
 		Task taskToAdd = new Task();
 		taskToAdd.setTaskName(taskName);
 		taskToAdd.setDescription(description);
@@ -73,7 +73,7 @@ public class TaskController {
 			taskToAdd.setNextDueDate(LocalDate.parse(nextDue));
 		}
 		taskToAdd.setInstructionURL(instructURL);
-		if (activeFlag == null) {
+		if (activeFlag == null || activeFlag != 1) {
 			taskToAdd.setActiveFlag(false);
 		} else {
 			taskToAdd.setActiveFlag(true);
@@ -85,7 +85,7 @@ public class TaskController {
 
 	@RequestMapping(path = "editTask.do", method = RequestMethod.POST)
 	public String editTask(Integer idNum, String taskName, String description, String lastCompleted, String nextDue,
-			String instructURL, Boolean activeFlag) {
+			String instructURL, Integer activeFlag) {
 		Task taskEditedDetails = new Task();
 		taskEditedDetails.setTaskName(taskName);
 		taskEditedDetails.setDescription(description);
@@ -96,7 +96,7 @@ public class TaskController {
 			taskEditedDetails.setNextDueDate(LocalDate.parse(nextDue));
 		}
 		taskEditedDetails.setInstructionURL(instructURL);
-		if (activeFlag == null) {
+		if (activeFlag == null || activeFlag != 1) {
 			taskEditedDetails.setActiveFlag(false);
 		} else {
 			taskEditedDetails.setActiveFlag(true);
@@ -107,7 +107,6 @@ public class TaskController {
 
 	@RequestMapping(path = "deleteTask.do", method = RequestMethod.POST)
 	public String deleteTask(Integer idNumDelete) {
-		System.out.println("id: " + idNumDelete);
 		dao.deleteTask(idNumDelete);
 		return "redirect:/";
 	}
