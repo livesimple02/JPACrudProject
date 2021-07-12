@@ -21,7 +21,7 @@ public class TaskController {
 	@Autowired
 	TaskDAO dao;
 
-	@RequestMapping(path = { "/"})
+	@RequestMapping(path = { "/" })
 	public String index(Model model, HttpSession session) {
 		LocalDate today = LocalDate.now();
 
@@ -84,8 +84,8 @@ public class TaskController {
 	}
 
 	@RequestMapping(path = "editTask.do", method = RequestMethod.POST)
-	public String editTask(Integer idNum, String taskName, String description, String lastCompleted,
-			String nextDue, String instructURL, Boolean activeFlag) {
+	public String editTask(Integer idNum, String taskName, String description, String lastCompleted, String nextDue,
+			String instructURL, Boolean activeFlag) {
 		Task taskEditedDetails = new Task();
 		taskEditedDetails.setTaskName(taskName);
 		taskEditedDetails.setDescription(description);
@@ -104,8 +104,8 @@ public class TaskController {
 		dao.editTask(taskEditedDetails, idNum);
 		return "redirect:/";
 	}
-	
-	@RequestMapping(path="deleteTask.do", method = RequestMethod.POST)
+
+	@RequestMapping(path = "deleteTask.do", method = RequestMethod.POST)
 	public String deleteTask(Integer idNumDelete) {
 		System.out.println("id: " + idNumDelete);
 		dao.deleteTask(idNumDelete);
